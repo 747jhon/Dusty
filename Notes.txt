@@ -1,0 +1,8 @@
+<Version: >
+
+Data Folder:
+\data
+
+Image Folder:
+\img
+
