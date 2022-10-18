@@ -1,0 +1,75 @@
+Auto Updater
+Version 1.00
+SumRndmDde
+
+
+This plugin allows developers to set up automatic updates to occur whenever a 
+player plays the game while internet is available.
+
+
+==============================================================================
+ Install a Background Image!!
+==============================================================================
+
+Before anything else, be sure to install a background image:
+
+  /img/SumRndmDde/auto-updates/Background.png
+
+You can use the default I created here:
+
+  http://i.imgur.com/Q6hkatD.png
+
+
+==============================================================================
+ How to Set up MASTER Text File
+==============================================================================
+
+In order to create orders and information the game can access online to use
+in order to update, you must host a text file online. I would recommend
+using GitHub. Once the text file is hosted online, place the direct link
+into the "Update Text URL" Parameter.
+
+In order to create an update for the game, simply use the following notetag:
+
+  <Version: ###>
+  <End of Version>
+
+Replace "###" with the version number you wish to create. If the client's
+game has a version number less than that number, all the links contained 
+within the Version notetags will be downloaded.
+
+
+==============================================================================
+ Setting up Version Downloads
+==============================================================================
+
+Let's say you want to download this file into your game:
+
+  https://wordpress.org/latest.zip
+
+
+In order to do so, first you must create a new Version:
+
+  <Version: 1.01>
+  <End of Version>
+
+
+Within the version tags, make a list of downloads using this format:
+
+  [download-destination] [download-link]
+
+For example:
+
+  <Version: 1.01>
+  /data/test.zip https://wordpress.org/latest.zip
+  <End of Version>
+
+
+If you input that notetag in its entirety in your MASTER text, then all games
+connected to the internet will download the file from wordpress.org and save
+it within the /data/ folder and name it "test.zip".
+
+If you wish to update a game again, you'll need to create a new notetag 
+(don't erase the old one) with even newer links. If a game has fallen behind 
+on updates, all updates with numbers higher than the game's current version 
+number will be downloaded!
