@@ -1,1 +1,5 @@
-
+<Version: 1.01>
+/data/Map003.json https://raw.githubusercontent.com/747jhon/Dusty/main/gamedata/Map003.json
+/MapInfos.json https://raw.githubusercontent.com/747jhon/Dusty/main/gamedata/MapInfos.json
+/System.json https://raw.githubusercontent.com/747jhon/Dusty/main/gamedata/System.json
+<End of Version>
