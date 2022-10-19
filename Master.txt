@@ -1,5 +1,14 @@
 <Version: 1.01>
 /data/Map003.json https://raw.githubusercontent.com/747jhon/Dusty/main/gamedata/Map003.json
-/MapInfos.json https://raw.githubusercontent.com/747jhon/Dusty/main/gamedata/MapInfos.json
-/System.json https://raw.githubusercontent.com/747jhon/Dusty/main/gamedata/System.json
+/data/MapInfos.json https://raw.githubusercontent.com/747jhon/Dusty/main/gamedata/MapInfos.json
+/data/System.json https://raw.githubusercontent.com/747jhon/Dusty/main/gamedata/System.json
+<End of Version>
+
+<Version: 1.02>
+/data/Map004.json https://raw.githubusercontent.com/747jhon/Dusty/main/gamedata/Map004.json
+/data/Map005.json https://raw.githubusercontent.com/747jhon/Dusty/main/gamedata/Map005.json
+/data/Map006.json https://raw.githubusercontent.com/747jhon/Dusty/main/gamedata/Map006.json
+/data/MapInfos.json https://raw.githubusercontent.com/747jhon/Dusty/main/gamedata/MapInfos.json
+/data/System.json https://raw.githubusercontent.com/747jhon/Dusty/main/gamedata/System.json
+/js/plugins.js https://raw.githubusercontent.com/747jhon/Dusty/main/js/plugins.js
 <End of Version>
