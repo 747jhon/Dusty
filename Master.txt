@@ -41,3 +41,7 @@
 /data/Troops.json https://raw.githubusercontent.com/747jhon/Dusty/main/gamedata/Troops.json
 /data/Weapons.json https://raw.githubusercontent.com/747jhon/Dusty/main/gamedata/Weapons.json
 <End of Version>
+
+<Version: 1.05>
+/js/plugins.js https://raw.githubusercontent.com/747jhon/Dusty/main/js/plugins.js
+<End of Version>
