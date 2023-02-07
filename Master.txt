@@ -1,4 +1,4 @@
-<Version 1.01:>
+<Version 1.01>
 
 \data\Map002.json https://raw.githubusercontent.com/747jhon/Dusty/main/1.01/Map002.json
 
