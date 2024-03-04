@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Log in to GameJolt</title>
+		<meta charset="utf-8"/>
+		<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'/>
+		<style>
+			html,body {
+				margin: 0;
+				padding: 0;
+			}
+			body {
+				font-family: arial,sans-serif;
+				font-size: 1em;
+				background-color: #a0a0a0;
+			}
+			header {
+				height: auto;
+				width: 100%;
+				background-color: black;
+				margin: 0;
+				padding: 0;
+			}
+			img#GameJoltLogo {
+				padding: 15px;
+				margin: 0;
+				display: block;
+			}
+			div#main{
+				padding: 15px 15px 15px 15px;
+			}
+			p{
+				margin: 0;
+				padding: 0;
+			}
+			input{
+				border: 2px solid #dadada;
+				outline: none; 
+				box-shadow: none;
+				border-radius: 0;
+				width: 100%;
+				padding: 5px;
+				font-size: 1.2em;
+				box-sizing: border-box;
+			}
+			input:focus{
+				box-shadow: 0 0 5px #9ecaed;
+				outline: none; 
+			}
+			p.input-header{
+				margin-top: 10px;
+				margin-bottom: 2px;
+				font-weight: bold;
+			}
+			a{
+				color: #a0a0a0;
+				text-decoration: none;
+			}
+			a:hover{
+				color: #808080;
+			}
+			a:active{
+				color: #606060;
+			}
+			a:focus{
+				box-shadow: 0 0 5px #9ecaed;
+				outline: none; 
+			}
+			p#token-help-info{
+				display: none;
+				padding: 2px 0px 5px 0px;
+			}
+			p#login-error{
+				display: none;
+				padding: 5px 0px 5px 0px;
+				color: red;
+				font-weight: bold;
+			}
+			button{
+				border: 2px solid #a0a0a0;
+				background-color: #dadada;
+				margin: 0;
+				margin-top: 10px;
+				outline: none;
+				width: 100%;
+				padding: 5px;
+				box-sizing: border-box;
+				font-size: 1.2em;
+			}
+			button:focus{
+				box-shadow: 0 0 5px #9ecaed;
+			}
+			#secondaryOptions{
+				margin-top: 5px;
+				text-align: right;
+				color: #a0a0a0;
+			}
+			#outerDiv{
+				margin: auto;
+				max-width: 1024px;
+				background-color: white;
+				min-height: 100vh;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="outerDiv">
+			<header>
+				<img id="GameJoltLogo" src="GameJoltLogo.svg" alt="GameJolt logo"></img>
+			</header>
+			<div id="main">
+				<p>Log in to GameJolt to earn trophies, highscores and more!</p>
+				<p class="input-header">Username:</p>
+				<input type="text" id="username" tabindex="1" autofocus></input>
+				<p class="input-header">Game token<span id="extra-space"> </span><a tabindex="0" href="javascript:void(0);" id="token-help">(?)</a>:</p>
+				<p id="token-help-info">You can find your game token on the bottom left of the GameJolt site while you're logged in.</p>
+				<input type="password" id="token" tabindex="2"></input>
+				<button id="loginButton" tabindex="3">Log In</button>
+				<p id="secondaryOptions"><a id="register" href="javascript:void(0);" tabindex="4">Register</a> - <a id="cancel" href="javascript:void(0);" tabindex="4">Cancel</a></p>
+				<p id="login-error">We couldn't log you in! Please check your username and game token and try again.</p>
+			</div>
+		</div>
+
+		<script>
+			var base_uri = "http://gamejolt.com/api/game/v1/";
+
+			document.getElementById("token-help").addEventListener('click', 
+				function()
+				{
+					document.getElementById("token-help-info").style.display = "block";
+					document.getElementById("token-help").style.display = "none";
+					document.getElementById("extra-space").style.display = "none";
+					document.getElementById("token").focus();
+				}, false);
+			//Cancel button
+			document.getElementById("cancel").addEventListener('click', 
+				function()
+				{
+					backToGame();
+				}, false);
+			//Register button
+			document.getElementById("register").addEventListener('click', 
+				function()
+				{
+					window.open("https://gamejolt.com/join");
+				}, false);
+			//Enter key
+			document.getElementById("token").addEventListener("keypress", function(e)
+				{
+					if(e.keyCode == 13)
+					{
+						doLogin();
+					}
+				}, false);
+			document.getElementById("username").addEventListener("keypress", function(e)
+				{
+					if(e.keyCode == 13)
+					{
+						doLogin();
+					}
+				}, false);
+
+			//Escape key
+			document.body.addEventListener("keyup", function(e)
+				{
+					if(e.keyCode == 27)
+					{
+						backToGame();
+					}
+				}, false);
+
+			var isPerformingLogin = false;
+			function doLogin()
+			{
+				if (! isPerformingLogin)
+				{
+					isPerformingLogin = true;
+					//Now logging in...
+					document.getElementById("loginButton").innerHTML = "Logging in...";
+					document.getElementById("login-error").style.display = "none";
+					var uname = document.getElementById("username").value, utoken = document.getElementById("token").value;
+					opener.GameJolt.login(uname, utoken);
+					window.close();
+				}
+			}
+
+			//Go back to the game
+			function backToGame()
+			{
+				window.close();
+			}
+
+			document.getElementById("loginButton").addEventListener('click', doLogin, false);
+
+			var gameID = "", privateKey = "", resultUserName = "", resultUserToken = "", isWindow = false, callbackCaller, redirect_to = "";
+		</script>
+	</body>
+</html>
